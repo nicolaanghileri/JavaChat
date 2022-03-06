@@ -20,6 +20,8 @@ public class Client {
             System.out.println("Connected with: " + socket.getInetAddress() +
                     " at port: " + socket.getPort());
             
+            new Reader(socket).start();
+            new Writer(socket).start();
             
             
             
