@@ -25,13 +25,10 @@ public class Reader extends Thread{
         try{
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(socket.getInputStream()));
-            
             while(((line = reader.readLine()) != null)){
                 System.out.println(line);
             }
-        }catch(IOException e){
-            
-        }
+        }catch(IOException e){}
     }
     
 }

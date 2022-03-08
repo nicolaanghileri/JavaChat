@@ -12,18 +12,27 @@ import java.net.Socket;
  * @version 06.03.2022
  */
 public class Writer extends Thread{
+    /**
+     * 
+     */
     private Socket socket = null;
     
+    /**
+     * 
+     * @param socket
+     */
     public Writer(Socket socket){
         this.socket = socket;
     }
     
+    /**
+     * 
+     */
     @Override
     public void run(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         
         PrintWriter printer = null;
-        
         try {
             printer = new PrintWriter(socket.getOutputStream());
         } catch (IOException ex) {
@@ -31,7 +40,6 @@ public class Writer extends Thread{
         }
         
         String line = null;
-        
         try{
             while((line = reader.readLine()) != null){
                 printer.println(line);
@@ -40,7 +48,5 @@ public class Writer extends Thread{
         }catch(IOException ex){
             
         }
-        
-        
     }
 }

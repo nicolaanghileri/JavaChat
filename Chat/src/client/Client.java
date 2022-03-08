@@ -9,22 +9,22 @@ import java.net.Socket;
  * @version 06.03.2022
  */
 public class Client {
-
+    /**
+     * 
+     */
+    public static final String HOST = "127.0.0.1";
+    
+    /**
+     * 
+     */
+    public static final int PORT = 5555;
     
     
     public static void main(String[] args) throws IOException {
-        Socket socket = null;
-       
         try{
-            socket = new Socket("127.0.0.1", 5555);
-            System.out.println("Connected with: " + socket.getInetAddress() +
-                    " at port: " + socket.getPort());
-            
+            Socket socket = new Socket(HOST, PORT);
             new Reader(socket).start();
             new Writer(socket).start();
-            
-            
-            
         }catch(IOException ex){
             System.out.println(ex.getMessage());
         }
