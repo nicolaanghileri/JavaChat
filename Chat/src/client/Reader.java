@@ -28,7 +28,9 @@ public class Reader extends Thread{
             while(((line = reader.readLine()) != null)){
                 System.out.println(line);
             }
-        }catch(IOException e){}
+        }catch(IOException e){
+            System.out.println("Reading error");
+        }
     }
     
 }
