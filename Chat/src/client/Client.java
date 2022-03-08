@@ -35,15 +35,6 @@ public class Client {
      */
     private String username;
     
-    /**
-     * 
-     */
-    private BufferedReader bufferedReader;
-    
-    /**
-     * 
-     */
-    private BufferedWriter bufferedWriter;
     
     /**
      * 
@@ -52,20 +43,14 @@ public class Client {
      * @throws IOException 
      */
     public Client(Socket socket, String username) throws IOException{
-        try{
-            this.socket = socket;
-            this.username = username;
-            this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-        }catch(IOException ex){
-            System.out.println("Client problem");
-        } 
+        this.socket = socket;
+        this.username = username;
     }
     
     public void send(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        
         PrintWriter printer = null;
+        
         try {
             printer = new PrintWriter(socket.getOutputStream());
         } catch (IOException ex) {

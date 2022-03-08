@@ -26,7 +26,7 @@ public class Server{
      * Istantiate the server with the list of handlers.
      */
     public Server(){
-        this.connections = new ArrayList<Handler>();
+        this.connections = new ArrayList<>();
     }
 
     /**
